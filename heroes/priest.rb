@@ -1,0 +1,3 @@
+class priest < hero 
+
+end

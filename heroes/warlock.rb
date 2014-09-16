@@ -1,0 +1,3 @@
+class warlock < hero 
+
+end

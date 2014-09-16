@@ -1,0 +1,3 @@
+class paladin < hero 
+
+end

@@ -1,0 +1,3 @@
+class shaman < hero 
+
+end

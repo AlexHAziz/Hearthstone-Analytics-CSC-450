@@ -1,0 +1,3 @@
+class mage < hero 
+
+end

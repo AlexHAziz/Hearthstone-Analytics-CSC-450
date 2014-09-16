@@ -1,0 +1,3 @@
+class hunter < hero 
+
+end

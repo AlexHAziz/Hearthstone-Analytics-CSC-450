@@ -1,0 +1,2 @@
+class weapon < card
+end
