@@ -1,3 +1,0 @@
-class battlecry < keywords 
-
-end 

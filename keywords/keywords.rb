@@ -1,3 +1,0 @@
-class keywords
-  name = ''
-end

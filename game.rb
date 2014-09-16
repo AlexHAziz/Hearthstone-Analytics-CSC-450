@@ -20,10 +20,10 @@ class game
   def play
     # check players life
     if current_player.health <= 0 
-      puts "#{waiting_player.name} winds."
+      puts "#{waiting_player.name} wins."
       break 
     elsif waiting_player.health <= 0 
-      puts "#{current_player.name} winds."
+      puts "#{current_player.name} wins."
       break 
     else
       current_player.turn

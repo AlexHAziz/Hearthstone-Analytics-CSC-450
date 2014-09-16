@@ -1,3 +1,2 @@
 class spell < card
-
 end
