@@ -40,18 +40,20 @@ class game
     current_player.battlefield.each |character|
       character.attacked_this_turn = false
     end
-    playable_cards =current_player.determine_playable_cards
-    possible_moves = []
-    # Fill in
-      # add all combinations of moves calculated from playable cards to a list of possible moves
-      # determine which move is most advantageous based on both players life, cards in hand, cards in play
-      # make that move and end turn 
+    playable_cards = current_player.determine_playable_cards
+    possible_attackers = current_player.determine_possible_attackers
+    possible_targets = current_player.determine_tragetable_characters
+    end_of_turn_effects = [] # append effects to this array
     game_battlefield.each |item|
       if item.keywords.contains('End of turn')
         item.keyowords['End of turn']
+        end_of_turn_effects.append[item]
       end
     end
-    #end of turn effects 
+    possible_moves = determine_moves(current_player.hero_ablity,playable_cards,possible_attackers,possible_targets,end_of_turn_effects)
+    move = pick_move(possible_moves)
+    execute_move(move)
+    end_turn()
   end
   
   def flip_coin
@@ -65,4 +67,24 @@ class game
     waiting_player.hand.append.('The Coin')
   end
   
+  def determine_moves(cards)
+    moves = []
+    # add all combinations of moves calculated from playable cards to a list of possible moves
+    # right now just plays a card needs to make and play cards after attacks as well
+    cards.each do |card|
+      moves.append = {card}
+    end 
+  end
+  
+  def pick_move (possible_moves)
+    # determine which move is most advantageous based on both players life, cards in hand, cards in play
+  end
+  
+  def execute_move (move)
+    # make that move and end turn 
+  end
+  
+  def end_turn
+    # run all end of turn effects 
+  end
 end

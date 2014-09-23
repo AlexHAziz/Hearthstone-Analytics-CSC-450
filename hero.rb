@@ -2,6 +2,7 @@ class Hero
   name = ''
   hero_class = ''
   health = 0
+  amour = 0
   hand = []
   deck = [] #read in deck
   total_mana = 0
@@ -41,5 +42,13 @@ class Hero
       end 
     end
     playable_cards
+  end
+  
+  def determine_possible_attackers
+  
+  end
+  
+  def determine_tragetable_characters
+  
   end
 end
