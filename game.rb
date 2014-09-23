@@ -40,9 +40,12 @@ class game
     current_player.battlefield.each |character|
       character.attacked_this_turn = false
     end
-    while turn.over == false
-
-    end 
+    playable_cards =current_player.determine_playable_cards
+    possible_moves = []
+    # Fill in
+      # add all combinations of moves calculated from playable cards to a list of possible moves
+      # determine which move is most advantageous based on both players life, cards in hand, cards in play
+      # make that move and end turn 
     game_battlefield.each |item|
       if item.keywords.contains('End of turn')
         item.keyowords['End of turn']
