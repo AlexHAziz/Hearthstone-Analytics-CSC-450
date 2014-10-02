@@ -101,6 +101,7 @@ class Game
   
   def end_turn
     # run all end of turn effects 
+    current_hero.attack = 0 
     turn = turn + 1
   end
 

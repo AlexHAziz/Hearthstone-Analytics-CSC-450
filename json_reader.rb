@@ -1,10 +1,12 @@
 require 'json'
 
 class Json_reader
-  file = File.open('AllSets.json', 'r')
+  file = File.open('json_files/AllSets.json', 'r')
   cards = JSON.parse(file.read)
   puts cards.class
   basic = cards['Basic']
+  puts basic.class
+  puts basic[1].class
   beginning = Time.now
   deck_1 = []
   deck_2 = []
