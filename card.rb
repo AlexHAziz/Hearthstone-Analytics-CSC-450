@@ -1,5 +1,5 @@
-require 'hero.rb'
-class card
+#require 'hero.rb'
+class Card
   name = ''
   cost = 0
   type = ''

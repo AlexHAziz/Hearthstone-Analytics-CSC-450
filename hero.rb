@@ -36,7 +36,7 @@ class Hero
   
   def determine_playable_cards
     playable_cards = []
-    hand.each |card_in_hand|
+    hand.each do |card_in_hand|
       if card_in_hand.cost < mana_available
         playable_cards.append
       end 
@@ -45,10 +45,8 @@ class Hero
   end
   
   def determine_possible_attackers
-  
   end
-  
+
   def determine_tragetable_characters
-  
   end
 end

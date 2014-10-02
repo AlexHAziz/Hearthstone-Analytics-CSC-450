@@ -1,10 +1,25 @@
-class game
+require 'json'
+
+class Game
   heroes = []
   game_battlefield = [] # get battlefields from each hero
-  action_queue = Queue.new
   current_turn_number = 0
-  current_player = #hero who's turn it is
-  waiting_player = 
+  current_player = nil #hero who's turn it is
+  waiting_player = nil
+
+  #read deck files and make heroes and their decks 
+  def make_player(deck_file)
+    hero = nil
+    i = 0 
+    deck_file.each_line do |line| 
+      i = i + 1
+      if i == 1
+        hero = Hero.new(JSON.parse(line))
+      else
+        hero.deck.append(JSON.parse(line))
+      end
+    end
+  end
   
   # setup game here
   def setup(player1, player2)
@@ -14,17 +29,17 @@ class game
     waiting_player.shuffle
     current_player.draw_card(3)
     waiting_player.draw_card(4)
+    game_battlefield.append(current_player)
+    game_battlefield.append(waiting_player)
   end
   
   # play game here
   def play
     # check players life
     if current_player.health <= 0 
-      puts "#{waiting_player.name} wins."
-      break 
+      abort("#{waiting_player.name} wins.")
     elsif waiting_player.health <= 0 
-      puts "#{current_player.name} wins."
-      break 
+      abort("#{current_player.name} wins.")
     else
       current_player.turn
     end
@@ -37,14 +52,14 @@ class game
       current_player.total_mana = current_player.total_mana + 1
     end
     current_player.mana_available = current_player.total_mana
-    current_player.battlefield.each |character|
+    current_player.battlefield.each do |character|
       character.attacked_this_turn = false
     end
     playable_cards = current_player.determine_playable_cards
     possible_attackers = current_player.determine_possible_attackers
     possible_targets = current_player.determine_tragetable_characters
     end_of_turn_effects = [] # append effects to this array
-    game_battlefield.each |item|
+    game_battlefield.each do |item|
       if item.keywords.contains('End of turn')
         item.keyowords['End of turn']
         end_of_turn_effects.append[item]
@@ -56,8 +71,8 @@ class game
     end_turn()
   end
   
-  def flip_coin
-    if random.rand(1..2) == 1
+  def flip_coin(player1,player2)
+    if Random.rand(1..2) == 1
       current_player = player1
       waiting_player = player2
     else
@@ -72,7 +87,7 @@ class game
     # add all combinations of moves calculated from playable cards to a list of possible moves
     # right now just plays a card needs to make and play cards after attacks as well
     cards.each do |card|
-      moves.append = {card}
+      #determine moves if that card was played first
     end 
   end
   
@@ -86,5 +101,7 @@ class game
   
   def end_turn
     # run all end of turn effects 
+    turn = turn + 1
   end
+
 end
