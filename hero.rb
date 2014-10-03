@@ -1,3 +1,4 @@
+# Methods need to be filled in
 class Hero
   name = ''
   hero_class = ''
@@ -95,9 +96,11 @@ class Hero
     playable_cards
   end
   
+  # Fill in
   def determine_possible_attackers
   end
 
+  # Fill in
   def determine_tragetable_characters
   end
 end

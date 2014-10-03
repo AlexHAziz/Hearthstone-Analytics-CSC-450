@@ -1,6 +1,9 @@
 require 'json'
 require_relative 'hero'
 
+# Need to create hero based off of input 
+# Need to add the method to covert the created hero to json then export it to the file
+# Need to add editing support
 # Builds a deck and hero then exports the info to json which is read in during simulation
 class Deck_builder 
   puts 'Please pick a class.'

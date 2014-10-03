@@ -1,4 +1,5 @@
-#require 'hero.rb'
+# needs to restructured based on how the json is structured 
+# Additionally this may not even be necessary as a stand alone class. (just a thought) 
 class Card
   name = ''
   cost = 0

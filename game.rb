@@ -1,5 +1,9 @@
 require 'json'
 
+# Need to add methods to load decklists 
+# Need to add methods to load master list of cards from json
+# Need to add the decision tree
+
 class Game
   heroes = []
   game_battlefield = [] # get battlefields from each hero
