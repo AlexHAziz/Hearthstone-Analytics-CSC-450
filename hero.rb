@@ -12,7 +12,7 @@ class Hero
   battlefield = [] # card hero has in play
   attacked_this_turn = false
   
-  def intailize(selected_class, decklist)
+  def initialize(selected_class, decklist)
     hero_class = selected_class
     case
     when hero_class = 'druid'
