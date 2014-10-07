@@ -1,7 +1,7 @@
 require_relative 'Game'
+require_relative 'Hero'
 
-this_game = Game.new
-hero_1 = this_game.make_player(File.open('deck_1.json'))
-hero_2 = this_game.make_player(File.open('deck_1.json'))
-this_game.setup(hero_1,hero_2)
+hero_1 = Hero.new(JSON.parse(File.open('json_files/deck_1.json').read)["class"], JSON.parse(File.open('json_files/deck_1.json').read)["deck"])
+hero_2 = Hero.new(JSON.parse(File.open('json_files/deck_2.json').read)["class"], JSON.parse(File.open('json_files/deck_2.json').read )["deck"])
+this_game = Game.new(hero_1,hero_2)
 this_game.play

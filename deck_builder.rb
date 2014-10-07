@@ -165,7 +165,7 @@ class Deck_builder
     deck_name = gets.chomp
   end
   data_to_be_output = {}
-  data_to_be_output["class"] = @heroes[selected_class.to_i]
+  data_to_be_output["class"] = @heroes[selected_class.to_i-1]
   data_to_be_output["deck"] = @deck
   output_file = File.new("json_files/#{deck_name}.json", "w")
   output_file.write(JSON.generate(data_to_be_output))
