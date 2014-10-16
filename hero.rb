@@ -98,9 +98,12 @@ class Hero
   def determine_playable_cards
     playable_cards = []
     hand.each do |card_in_hand|
-      if card_in_hand["cost"] < @mana_available
-        playable_cards.push
+      if card_in_hand["cost"] <= @mana_available
+        playable_cards.push(card_in_hand)
       end 
+    end
+    if mana_available >= 2
+      playable_cards.push("hero ablity")
     end
     playable_cards
   end
