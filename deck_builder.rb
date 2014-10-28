@@ -24,8 +24,6 @@ class Deck_builder
 
   @playable_sets = [
     "Basic",
-    "Curse of Naxxramas",
-    "Expert"
   ]
 
   puts "Please select a hero class."

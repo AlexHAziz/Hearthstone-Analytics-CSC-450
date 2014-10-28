@@ -1,9 +1,5 @@
 require 'json'
 
-# Need to add methods to load decklists 
-# Need to add methods to load master list of cards from json
-# Need to add the decision tree
-
 class Game
   attr_accessor :game_battlefield # get battlefields from each hero
   attr_accessor :current_turn_number
@@ -73,6 +69,13 @@ class Game
         end_turn()
       end
     end
+  end
+  
+  def turn()
+    pick_playable_card()
+    attack()
+    pick_playable_card()
+    end_turn()
   end
   
   def determine_moves(playable_cards)
