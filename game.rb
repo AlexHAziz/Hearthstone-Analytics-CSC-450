@@ -108,5 +108,11 @@ class Game
     # run all end of turn effects 
     @current_player.attack = 0 
   end
+  
+  def attack (attacker, target)
+	target.health = target.health - attacker.attack
+      attacker.health   = attacker.health - target.attack
+      attacker.attacked_this_turn = true
+  end
 
 end
