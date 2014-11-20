@@ -1,3 +1,7 @@
+Getting Started
+	1. Go install bundler by runing 'gem install bundler', you may want to read about what this is and why its awesome
+	2. Install gems by running 'bundle install', this will install rspec which is our test suite.
+
 Division of labor
 	Listed below is generally whats left to be coded in the game. I have distributed the work load between everybody as equitably as possible. This should result in equal code contribution. 
 

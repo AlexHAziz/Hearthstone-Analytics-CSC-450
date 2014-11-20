@@ -1,5 +1,3 @@
-require 'json'
-
 class Game
   attr_accessor :game_battlefield # get battlefields from each hero
   attr_accessor :current_turn_number
