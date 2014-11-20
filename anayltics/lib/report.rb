@@ -77,14 +77,14 @@ class Report
     puts "Deck 1 wins #{deck_1_number_wins}/#{data.size} which is #{deck_1_win_rate}%"
     puts "Deck 2 wins #{deck_2_number_wins}/#{data.size} which is #{deck_2_win_rate}%"  
 
-    # Calculate win damage and convert that number to a float
-    deck_1_avg_win_damage = deck_1_win_damage/deck_1_number_wins.to_f
-    deck_2_avg_win_damage = deck_2_win_damage/deck_2_number_wins.to_f
-    total_win_damage = total_win_damage/data.size.to_f
+    # Calculate win turn and convert that number to a float
+    deck_1_avg_win_turn = deck_1_win_turn/deck_1_number_wins.to_f
+    deck_2_avg_win_turn = deck_2_win_turn/deck_2_number_wins.to_f
+    total_win_turn = total_win_turn/data.size.to_f
 
-    puts "Deck 1 on avgerage wins by dealing #{deck_1_avg_win_damage}"
-    puts "Deck 2 on avgerage wins by dealing #{deck_2_avg_win_damage}"
-    puts "On avgerage the game ends by dealing #{total_win_damage}" 
+    puts "Deck 1 on avgerage wins on turn #{deck_1_avg_win_turn}"
+    puts "Deck 2 on avgerage wins on turn #{deck_2_avg_win_turn}"
+    puts "On avgerage the game ends on turn #{total_win_turn}" 
     
     # Calculate win damage and convert that number to a float
     deck_1_avg_win_damage = deck_1_win_damage/deck_1_number_wins.to_f
