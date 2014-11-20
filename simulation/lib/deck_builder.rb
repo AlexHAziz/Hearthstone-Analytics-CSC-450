@@ -10,6 +10,7 @@ class Deck_builder
   @banned_list = [] # array containing the names of cards that aren"t playable
   @deck = [] # array containing the cards that will be exported
 
+  # List of available heroes 
   @heroes = [
     "Druid",
     "hunter",
@@ -22,10 +23,12 @@ class Deck_builder
     "warrior",
   ]
 
+  # List of playable sets 
   @playable_sets = [
     "Basic",
   ]
 
+  # Asks user to select a hero
   puts "Please select a hero class."
   @heroes.each do |item|
     puts "#{@heroes.index(item)+1}. #{item}"
@@ -36,6 +39,7 @@ class Deck_builder
     selected_class = gets
   end
 
+  # Opens the Json file and parses it to report the cards the user can select
   file = File.open("json_files/AllSets.json", "r")
   cards = JSON.parse(file.read)
   cards.each do |sets|
@@ -115,6 +119,7 @@ class Deck_builder
     end
   end
   
+  # Waits for user to finish editing the deck before writing to a file 
   finalize_deck = false
   while finalize_deck == false
     user_input = nil
@@ -156,6 +161,7 @@ class Deck_builder
     end
   end
   
+  # Writes users deck to a json file
   puts "Please enter a name for this deck."
   deck_name = gets.chomp
   while File.exists?("json/#{deck_name}.json")
