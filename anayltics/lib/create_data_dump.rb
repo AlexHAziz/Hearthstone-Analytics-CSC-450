@@ -10,7 +10,12 @@ class CreateDataDump
     number_of_games = gets.to_i
     data = []
     for i in 0..number_of_games
-      data.push(data_gen.create_data)
+      # This gets rid of the nil element that the array is initialized with
+      if i == 1
+        data[0] = data_gen.create_data
+      else 
+        data.push(data_gen.create_data)
+      end
     end
     create_json(data)
   end
