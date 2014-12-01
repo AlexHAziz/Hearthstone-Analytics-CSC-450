@@ -5,10 +5,10 @@ require_relative "hero"
 
 # Builds a deck and hero then exports the info to json which is read in during simulation
 class Deck_builder 
-  selected_class = 0
+  selected_class   = 0
   @available_cards = [] # array of cards that the selected hero can use
-  @banned_list = [] # array containing the names of cards that aren"t playable
-  @deck = [] # array containing the cards that will be exported
+  @banned_list     = [] # array containing the names of cards that aren"t playable
+  @deck            = [] # array containing the cards that will be exported
 
   # List of available heroes 
   @heroes = [
@@ -45,11 +45,11 @@ class Deck_builder
   cards.each do |sets|
     set_name = sets[0]
     if @playable_sets.include? set_name
-    cards[set_name].each do |card|
-      if (!card.has_key?("playerClass") || card["playerClass"] == @new_hero) && !@banned_list.include?(card)
-      @available_cards.push(card)
+      cards[set_name].each do |card|
+        if (!card.has_key?("playerClass") || card["playerClass"] == @new_hero) && !@banned_list.include?(card)
+          @available_cards.push(card)
+        end
       end
-    end
     end
   end
   @available_cards.each do |card| 

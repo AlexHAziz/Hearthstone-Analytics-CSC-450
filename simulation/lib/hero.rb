@@ -61,34 +61,34 @@ class Hero
 
   def hero_ability(target)
     case
-    when @hero_class = 'druid'
+    when @hero_class == 'druid'
       @attack = 1
       @armour = amour + 1
-    when @hero_class = 'hunter'
+    when @hero_class == 'hunter'
       target.health = target.health - 2
-    when @hero_class = 'mage'
+    when @hero_class == 'mage'
       target.health = target.health - 2
-    when @hero_class = 'paladin'
+    when @hero_class == 'paladin'
       @battlefield.push("Silver Hand Recruit")
-    when @hero_class = 'priest'
+    when @hero_class == 'priest'
       target.health = target.health + 2
-    when @hero_class = 'rouge'
+    when @hero_class == 'rouge'
       @weapon = "Dagger Mastery"
-    when @hero_class = 'shaman'
+    when @hero_class == 'shaman'
       totems = ['Healing Totem', 'Searinhg Totem', 'Stoneclaw Totem', 'Wrath of Air Totem']
       @battlefield.push(totems.sample)
-    when @hero_class = 'warlock'
+    when @hero_class == 'warlock'
       darw_card(2)
       @health = @health - 2
-    when @hero_class = 'warrior'
+    when @hero_class == 'warrior'
       @armour = @armour + 2
     end
   end 
 
   def attack
     if @attacked_this_turn == false
-      target.health = target.health - @attack
-      @health   = @health - target.attack
+      target.health       = target.health - @attack
+      @health             = @health - target.attack
       @attacked_this_turn = true
     else
       raise 'hero already attacked'
