@@ -77,21 +77,6 @@ class Game
   end
   
   def determine_moves(playable_cards)
-    moves = []
-    # Turns 1-3 seriously consider doing nothing 
-    if @current_turn_number < 6
-      moves.push(nil)
-    end
-    playable_cards.each do |card|
-      play_order = []
-      play_order/push(card)
-      moves.push.(play_order)
-    end
-    # add all combinations of moves calculated from playable cards to a list of possible moves
-    # right now just plays a card needs to make and play cards after attacks as well
-    cards.each do |card|
-      #determine moves if that card was played first
-    end 
   end
   
   def pick_move (possible_moves)
