@@ -25,8 +25,9 @@ Division of labor
 
 Alex 
   - Creating the project and test suite
-  - Base line code, writing all the basic class an putting in method stubs to be filled in. (Read past commits for more info)
+  - Base line code for simulation system, writing all the basic class an putting in method stubs to be filled in. (Read past commits for more info)
   - Reviewing code 
+  - Creating and coding the analytical system
 
 Conner *has the least difficult coding in game itself because he has to write the tests.
   - Attack method (goes in game.rb)

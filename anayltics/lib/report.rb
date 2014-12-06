@@ -22,12 +22,12 @@ class Report
     end
     
     load_file = data_dumps[user_select]
-    anaylize(load_file)
+    anaylze(load_file)
   end
   
   # Call all methods to generate and report all statics about the data 
   # accepts the input of a string that is the path to the file to be loaded
-  def anaylize(load_file)
+  def anaylze(load_file)
     generate_all(load_file)
 =begin
     get_win_rates(load_file)
@@ -36,8 +36,13 @@ class Report
 =end
   end
 
+=begin
+  Stat generating methods bellow.
+  To add more stats either make a new method and add a call to in the analyze method above
+  or add it the generate_all method directly bellow this.
+=end
   # This method generates all the stats and is more efficient if we want to provide them 
-  # all instead of a selective report
+  # all instead of a selective report.
   def generate_all(load_file)
     data = JSON.parse(File.open("#{load_file}", "r").read) # Parse the json into an array
     deck_1_number_wins = 0.0
