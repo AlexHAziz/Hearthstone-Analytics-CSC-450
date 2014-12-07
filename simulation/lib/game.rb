@@ -92,6 +92,9 @@ class Game
     @current_player.attack = 0 
   end
   
+	#	Attack Method. Simulates an attack between an attacker and a target. Alters health appropriately.
+	#	Written by Conner Leo
+	#	Last edited on 12/7/2014
   def attack (attacker, target)
 	target.health = target.health - attacker.attack
       attacker.health   = attacker.health - target.attack

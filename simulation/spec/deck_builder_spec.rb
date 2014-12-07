@@ -1,6 +1,6 @@
 #	Testing for the deck_builder class. It tests the methods within that class to make sure expected results are achieved.
 #	Written by Conner Leo
-#	Last edited on 12/5/2014
+#	Last edited on 12/7/2014
 #	Filename = "deck_builder_spec.rb"
 
 require 'deck_builder'
@@ -11,7 +11,7 @@ describe Deck_builder do
 
   
   it 'checks that the occurences of a card in the deck is not negative' do
-    expect(test_obj.check_occurences_of_card_deck(test_obj.deck[0]).to be >=(0)
+    expect(test_obj.check_occurences_of_card_deck(test_obj.deck[0])).to be >=(0)
   end
   
   it 'checks that the remove card method changed the deck length' do
