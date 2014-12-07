@@ -1,4 +1,6 @@
-# Methods need to be filled in
+=begin
+  This class mocks the abilities of a hero in the game and keeps track of all importan hero data.
+=end
 class Hero
   attr_accessor :name
   attr_accessor :hero_class
@@ -14,6 +16,8 @@ class Hero
   attr_accessor :battlefield # cards hero has in play
   attr_accessor :attacked_this_turn
   
+  # The constructor of this class
+  # does basic setup such as initializing variables. 
   def initialize(selected_class, decklist)
     @hero_class = selected_class
     case
@@ -49,16 +53,19 @@ class Hero
     @attacked_this_turn      = false
   end
   
+  # Draws a given number of cards
   def draw_card(number_of_cards)
     for i in 1..number_of_cards
       @hand.push(@deck.pop)
     end
   end
   
+  # Randomizes the deck
   def shuffle
     # randomize @deck
   end
 
+  # Determines and executes the hero's ability.
   def hero_ability(target)
     case
     when @hero_class == 'druid'
@@ -85,7 +92,8 @@ class Hero
     end
   end 
 
-  def attack
+  # Allows the hero to attack a given target
+  def attack(target)
     if @attacked_this_turn == false
       target.health       = target.health - @attack
       @health             = @health - target.attack
@@ -95,6 +103,7 @@ class Hero
     end
   end
   
+  # Determines and returns a list of playable cards
   def determine_playable_cards
     playable_cards = []
     hand.each do |card_in_hand|
