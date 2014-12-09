@@ -117,11 +117,24 @@ class Hero
     playable_cards
   end
   
-  # Fill in
-  def determine_possible_attackers
+  # Determines and returns a list of playable cards
+  def determine_possible_attackers(opponent)
+    attackers = []
+    opponent.battlefield.each do |card_in_play|
+        attackers.push(card_in_play)
+    end
+    if opponent.weapon != ''
+        attackers.push(opponent)
+    end
+    attackers
   end
 
-  # Fill in
-  def determine_tragetable_characters
+  def determine_tragetable_characters(opponent)
+      targetable_characters = []
+      opponent.battlefield.each do |card_in_play|
+          targetable_characters.push(card_in_play)
+      end
+      targetable_characters.push(opponent)
+      targetable_characters 
   end
 end
