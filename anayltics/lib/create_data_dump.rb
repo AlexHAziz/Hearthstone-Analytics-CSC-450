@@ -44,7 +44,7 @@ class CreateDataDump
 =end
   def create_json(data)
     file_name = "data_set_#{Time.now.getutc}"
-    output_file = File.new("data/#{file_name}.json", "w")
+    output_file = File.new("mocked_data/#{file_name}.json", "w")
     output_file.write(JSON.generate(data))
   end
 end

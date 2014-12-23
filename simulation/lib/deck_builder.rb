@@ -1,9 +1,9 @@
 require "json"
 require_relative "hero"
 
-=begin
-  Builds a deck and hero then exports the info to json which is read in during simulation
-=end
+# Need to add editing support
+
+# Builds a deck and hero then exports the info to json which is read in during simulation
 class Deck_builder 
   selected_class   = 0
   @available_cards = [] # array of cards that the selected hero can use

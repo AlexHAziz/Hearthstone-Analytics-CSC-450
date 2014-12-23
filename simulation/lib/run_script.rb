@@ -1,6 +1,3 @@
-=begin
-  This script starts the simulation
-=end
 require_relative 'Game'
 require_relative 'Hero'
 

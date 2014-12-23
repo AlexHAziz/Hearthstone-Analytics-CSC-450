@@ -2,10 +2,11 @@ require 'json'
 
 # This class generates and reports all the stats about the data from a file
 class Report
-  def initialize
-    # retrieves all json files and prints them with their index number so the user can select
+  def initialize 
     puts "What file would you like to load?"
-    data_dumps = Dir["data/*.json"]
+    
+    # retrieves all json files and prints them with their index number so the user can select
+    data_dumps = Dir["mocked_data/*.json"]
     i          = 0
     data_dumps.each do |file|
       puts "#{i}. #{file}"
