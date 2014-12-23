@@ -26,6 +26,12 @@ class Deck_builder
   # List of playable sets 
   @playable_sets = [
     "Basic",
+    "Classic", 
+    "Curse of Naxxramas",
+    "Goblins vs Gnomes",
+    "Missions",
+    "Promotion",
+    "Reward"
   ]
 
   # Asks user to select a hero

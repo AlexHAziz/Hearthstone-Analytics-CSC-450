@@ -6,10 +6,10 @@ class Game
 
   # setup game here
   def initialize(player1, player2)
-    @game_battlefield = [] # get battlefields from each hero
+    @game_battlefield    = []
     @current_turn_number = 0
-    @current_player = nil #hero who's turn it is
-    @waiting_player = nil
+    @current_player      = nil 
+    @waiting_player      = nil
 
     if Random.rand(1..2) == 1
       puts "#{player1.name} goes 1st"
@@ -32,27 +32,42 @@ class Game
 
   # play game here
   def play
-    # check players life
-    game_over = false
+    game_over = false #used to keep the simulation going
+
     while game_over == false
+      # check players life if neither player is at zero continue with the next turn
       if @current_player.health <= 0 && @waiting_player.health > 0
         abort("#{@waiting_player.name} wins.")
       elsif @waiting_player.health <= 0 && current_player.health > 0
         abort("#{@current_player.name} wins.")
       else
-        @current_turn_number = @current_turn_number + 1
-        @current_player.draw_card(1)
+        @current_turn_number = @current_turn_number + 1 # increment turn number 
+        @current_player.draw_card(1) # draw a card
+        
+        # Add a mana crystal if the current player has less than 10
         if @current_player.total_mana < 10 
           @current_player.total_mana = @current_player.total_mana + 1
         end
+        
+        # Make all mana available
         @current_player.mana_available = @current_player.total_mana
-        @current_player.battlefield.each do |character|
-          character.attacked_this_turn = false
-        end
-        playable_cards = @current_player.determine_playable_cards
-        possible_attackers = @current_player.determine_possible_attackers
-        possible_targets = @current_player.determine_tragetable_characters
-        end_of_turn_effects = [] # push effects to this array
+
+        # Steps of a turn
+        # 1. Check what is playable
+        # 2. Check which characters can attack
+        # 3. Check what can be target
+        # 4. Check for enemy secrets 
+        # 5. Check for friendly end of turn effects 
+        # 6. Determine if you have lethal damage if not keep going.
+        # 7. Check for enemy end of turn effects 
+        # 8. Pick the move that does not result in a a loss and then the results in ...
+        # 1. Board advantage
+        # 2. Card advantage
+        # 3. Lowest enemy life total
+        playable_cards      = @current_player.determine_playable_cards
+        possible_attackers  = @current_player.determine_possible_attackers
+        possible_targets    = @current_player.determine_tragetable_characters
+        enemey_end_of_turn_effects = [] # push effects to this array
         @game_battlefield.each do |player_battlefield|
           player_battlefield.each do |item|
             if item["text"].contains('End of turn')
@@ -61,6 +76,7 @@ class Game
             end
           end
         end
+        
         possible_moves = determine_moves(playable_cards)
         move = pick_move(possible_moves)
         execute_move(move)
@@ -68,34 +84,28 @@ class Game
       end
     end
   end
-  
+
   def turn()
     pick_playable_card()
     attack()
     pick_playable_card()
     end_turn()
   end
-  
+
   def determine_moves(playable_cards)
   end
-  
+
   def pick_move (possible_moves)
     # determine which move is most advantageous based on both players life, cards in hand, cards in play
   end
-  
+
   def execute_move (move)
     # make that move and end turn 
   end
-  
+
   def end_turn
     # run all end of turn effects 
     @current_player.attack = 0 
-  end
-  
-  def attack (attacker, target)
-	target.health = target.health - attacker.attack
-      attacker.health   = attacker.health - target.attack
-      attacker.attacked_this_turn = true
   end
 
 end

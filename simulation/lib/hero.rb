@@ -86,46 +86,15 @@ class Hero
   end 
 
   def attack
-    if @attacked_this_turn == false
-      target.health       = target.health - @attack
-      @health             = @health - target.attack
-      @attacked_this_turn = true
-    else
-      raise 'hero already attacked'
-    end
   end
   
   def determine_playable_cards
-    playable_cards = []
-    hand.each do |card_in_hand|
-      if card_in_hand["cost"] <= @mana_available
-        playable_cards.push(card_in_hand)
-      end 
-    end
-    if mana_available >= 2
-      playable_cards.push("hero ablity")
-    end
-    playable_cards
   end
   
   # Determines and returns a list of playable cards
   def determine_possible_attackers(opponent)
-    attackers = []
-    opponent.battlefield.each do |card_in_play|
-        attackers.push(card_in_play)
-    end
-    if opponent.weapon != ''
-        attackers.push(opponent)
-    end
-    attackers
   end
 
   def determine_tragetable_characters(opponent)
-      targetable_characters = []
-      opponent.battlefield.each do |card_in_play|
-          targetable_characters.push(card_in_play)
-      end
-      targetable_characters.push(opponent)
-      targetable_characters 
   end
 end
